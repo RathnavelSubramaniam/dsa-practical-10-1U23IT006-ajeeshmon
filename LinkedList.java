@@ -65,13 +65,13 @@ public void deleteEnd()
         prev.next = null;
         tail = prev;
     }
-}
-public void displayList(){
-    Node current = head;
-    while (current != null){
-        System.out.print(current.data +"->");
-        current = current.next;
     }
-    System.out.println("null");
-}
+public void displayList() {
+        Node current = head;
+        while (current != null) {
+        System.out.print(current.data + " -> ");
+        current = current.next;
+        }
+System.out.println("null");
+    }
 }
