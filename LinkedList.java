@@ -3,16 +3,16 @@ public class LinkedList {
     class Node {
     int data;
     Node next;
- 
+
     public Node(int data) {
         this.data = data;
         this.next = null;
         }
     }
- 
+
     Node head = null;
     Node tail = null;
- 
+
 public void addNode(int data) {
         Node newNode = new Node(data);
         if (head == null) {
@@ -23,19 +23,19 @@ public void addNode(int data) {
             tail = newNode;
         }
     }
- 
+
 public static void main(String[] args) {
 LinkedList list = new LinkedList();
 Scanner sc = new Scanner(System.in);
- 
+
 System.out.println("Enter integers to create nodes (enter a non-integer to exit):");
- 
+
 while (sc.hasNextInt()) {
 int data = sc.nextInt();
 list.addNode(data);
         }
 System.out.println("Linked List created");
- 
+
 System.out.println("Linked List Before Deleting");
 list.displayList();
 System.out.println("Deletion at Tail");
@@ -45,15 +45,33 @@ list.displayList();
 sc.close();
     }
 public void deleteEnd()
-    {
-        // TYPE YOUR CODE HERE
-    }
-public void displayList() {
-        Node current = head;
-        while (current != null) {
-        System.out.print(current.data + " -> ");
-        current = current.next;
+
+{
+    if (head == null) {
+        System.out.println("List is Empty");
+    } else if (head.next == null) {
+        System.out.println("Deleted Element: " + head.data);
+        head = null;
+        tail = null;
+
+    } else {
+        Node temp = head;
+        Node prev = head;
+        while (temp.next != null) {
+            prev = temp;
+            temp = temp.next;
         }
-System.out.println("null");
+        System.out.println("Deleted Element is:3");
+        prev.next = null;
+        tail = prev;
     }
- }
+}
+public void displayList(){
+    Node current = head;
+    while (current != null){
+        System.out.print(current.data +"->");
+        current = current.next;
+    }
+    System.out.println("null");
+}
+}
